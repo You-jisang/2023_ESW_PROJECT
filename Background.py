@@ -19,7 +19,9 @@ class Background:
             ball.position[0] = self.width - self.wall_thickness - ball.image.width  # 오른쪽 벽에 공을 고정시킴
             ball.velocity[0] *= -1  # 벽과 충돌하면 x축 방향 속도를 반대로 바꿔줌
         # 바닥과의 충돌 검사
-        if ball.position[1] + ball.image.height >= self.height - self.floor_thickness:
-            ball.velocity[1] = -8 # 벽과 충돌하면 y축 방향 속도를 반대로 바꿔줌
+        if ball.position[1] + 20 >= self.height - self.floor_thickness:
+            ball.position[1] = self.height - self.floor_thickness - 20
+            ball.velocity[1] = -6.5 # 벽과 충돌하면 y축 방향 속도를 반대로 바꿔줌
+            ball.dash_chance = 1
 
         return None
